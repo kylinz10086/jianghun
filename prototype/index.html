@@ -1,0 +1,124 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>匠魂 · 工艺知识库</title>
+  <meta name="description" content="匠魂：制造业老师傅工艺知识库 MVP 原型" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <div class="app">
+    <aside class="sidebar">
+      <div class="brand">
+        <div class="brand-mark" aria-hidden="true">
+          <svg viewBox="0 0 64 64">
+            <rect x="3" y="3" width="58" height="58" rx="15" fill="#e8a33d"/>
+            <path d="M12 33h7l4-9 5 18 4-9h6l3-5 3 10 3-5h6" fill="none" stroke="#0f2433" stroke-width="4.2" stroke-linecap="round" stroke-linejoin="round"/>
+            <circle cx="51" cy="33" r="3.2" fill="#f8f4ec"/>
+          </svg>
+        </div>
+        <div>
+          <div class="brand-name">匠魂</div>
+          <div class="brand-sub">工艺知识库</div>
+        </div>
+      </div>
+
+      <div class="factory-switch" title="当前试点工厂">
+        <div class="factory-dot"></div>
+        <div class="factory-text">
+          <strong>东莞精密注塑</strong>
+          <span>一车间 · 试点中</span>
+        </div>
+        <svg class="chevron" viewBox="0 0 16 16"><path d="M4 6l4 4 4-4" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg>
+      </div>
+
+      <nav class="nav" id="nav">
+        <button class="nav-item active" data-view="dashboard">
+          <svg class="icon" viewBox="0 0 24 24"><rect x="3" y="3" width="7" height="7" rx="1.5"/><rect x="14" y="3" width="7" height="7" rx="1.5"/><rect x="3" y="14" width="7" height="7" rx="1.5"/><rect x="14" y="14" width="7" height="7" rx="1.5"/></svg>
+          <span>总览</span>
+        </button>
+        <button class="nav-item" data-view="knowledge">
+          <svg class="icon" viewBox="0 0 24 24"><path d="M4 5.5A2.5 2.5 0 0 1 6.5 3H20v16.5A1.5 1.5 0 0 1 18.5 21H6.5A2.5 2.5 0 0 1 4 18.5z"/><path d="M4 18.5A2.5 2.5 0 0 1 6.5 16H20"/><path d="M8 7h8M8 11h6"/></svg>
+          <span>知识库</span>
+        </button>
+        <button class="nav-item" data-view="ask">
+          <svg class="icon" viewBox="0 0 24 24"><path d="M21 12a8.5 8.5 0 0 1-8.5 8.5H6l-3 2v-5.2A8.5 8.5 0 1 1 21 12z"/><path d="M9 10.5a3 3 0 1 1 4.5 2.6c-.9.5-1.5 1.1-1.5 2.1"/><circle cx="12" cy="17.6" r=".9" fill="currentColor" stroke="none"/></svg>
+          <span>问师傅</span>
+        </button>
+        <button class="nav-item" data-view="capture">
+          <svg class="icon" viewBox="0 0 24 24"><rect x="9" y="3" width="6" height="11" rx="3"/><path d="M5 11a7 7 0 0 0 14 0M12 18v3M8 21h8"/></svg>
+          <span>采集工作台</span>
+        </button>
+        <button class="nav-item" data-view="review">
+          <svg class="icon" viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="16" rx="2.5"/><path d="M7 9l2.2 2.2L13 7.5M7 16l2.2 2.2L13 14.5M16 9h2M16 16h2"/></svg>
+          <span>审核队列</span>
+          <span class="nav-badge" id="queueBadge">6</span>
+        </button>
+        <button class="nav-item" data-view="onboarding">
+          <svg class="icon" viewBox="0 0 24 24"><circle cx="6" cy="6" r="2.2"/><circle cx="6" cy="18" r="2.2"/><circle cx="18" cy="12" r="2.2"/><path d="M8.2 6H13a3 3 0 0 1 3 3v.5M8.2 18H13a3 3 0 0 0 3-3v-.5"/></svg>
+          <span>新人路径</span>
+        </button>
+      </nav>
+
+      <div class="nav-sep"></div>
+
+      <nav class="nav">
+        <button class="nav-item" data-view="settings">
+          <svg class="icon" viewBox="0 0 24 24"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.7 1.7 0 0 0 .3 1.9l.1.1-2.8 2.8-.1-.1a1.7 1.7 0 0 0-1.9-.3 1.7 1.7 0 0 0-1 1.6v.2h-4v-.2a1.7 1.7 0 0 0-1-1.6 1.7 1.7 0 0 0-1.9.3l-.1.1L4.2 17l.1-.1a1.7 1.7 0 0 0 .3-1.9 1.7 1.7 0 0 0-1.6-1H2.8v-4H3a1.7 1.7 0 0 0 1.6-1 1.7 1.7 0 0 0-.3-1.9L4.2 7 7 4.2l.1.1A1.7 1.7 0 0 0 9 4.6a1.7 1.7 0 0 0 1-1.6v-.2h4V3a1.7 1.7 0 0 0 1 1.6 1.7 1.7 0 0 0 1.9-.3l.1-.1L19.8 7l-.1.1a1.7 1.7 0 0 0-.3 1.9 1.7 1.7 0 0 0 1.6 1h.2v4H21a1.7 1.7 0 0 0-1.6 1z"/></svg>
+          <span>设置</span>
+        </button>
+      </nav>
+
+      <div class="sidebar-foot">
+        <div class="pilot-pill"><span></span> 试点版 v0.1</div>
+        <p>1 个车间 · 3 位老师傅<br>数据仅本地演示</p>
+      </div>
+    </aside>
+
+    <main class="main">
+      <header class="topbar">
+        <div class="page-head">
+          <div class="crumb">匠魂 / <span id="crumbView">总览</span></div>
+          <h1 id="pageTitle">总览</h1>
+          <p id="pageSub">一车间今天的关键变化，都在这里。</p>
+        </div>
+        <div class="top-actions">
+          <label class="search">
+            <svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="6.5"/><path d="M16 16l4.5 4.5"/></svg>
+            <input id="globalSearch" type="search" placeholder="搜索工艺、异常、问题…" autocomplete="off" />
+          </label>
+          <label class="role-select">
+            <span>视角</span>
+            <select id="roleSelect">
+              <option value="boss">厂长</option>
+              <option value="master">老师傅</option>
+              <option value="newbie">新人</option>
+              <option value="leader">班组长</option>
+            </select>
+          </label>
+          <div class="avatar" id="avatar" title="陈厂长">陈</div>
+        </div>
+      </header>
+
+      <section id="view" class="view"></section>
+    </main>
+  </div>
+
+  <div id="drawerOverlay" class="drawer-overlay hidden"></div>
+  <aside id="drawer" class="drawer hidden" aria-hidden="true">
+    <div class="drawer-head">
+      <div>
+        <div class="eyebrow" id="drawerEyebrow">工艺卡片</div>
+        <h2 id="drawerTitle">PA66-GF30 尺寸超差</h2>
+      </div>
+      <button class="icon-btn" data-action="close-drawer" aria-label="关闭">✕</button>
+    </div>
+    <div id="drawerBody" class="drawer-body"></div>
+  </aside>
+
+  <div id="toast" class="toast hidden" role="status"></div>
+
+  <script src="app.js"></script>
+</body>
+</html>
