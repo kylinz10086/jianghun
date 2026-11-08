@@ -128,23 +128,10 @@ python -m http.server 4173 --bind 127.0.0.1 --directory prototype
 
 ---
 
-## 上传到 GitHub
+## 仓库
 
-本仓库已经在本地初始化并提交，但还没有 remote。
-
-1. 在 GitHub 新建一个**空仓库**（不要勾选 “Initialize with README”）。
-2. 在本目录执行：
-
-```powershell
-git remote add origin https://github.com/<your-name>/<repo>.git
-git push -u origin main
-```
-
-3. 如果要启用在线原型：仓库 **Settings → Pages → Source** 选 **GitHub Actions**。
-
-> 当前 commit 身份是本地占位（`匠魂项目组` / `jianghun@users.noreply.github.com`）。想关联你的 GitHub 账号，先改 `git config user.name` 和 `git config user.email`，再执行 `git commit --amend --reset-author --no-edit`。
-
----
+- GitHub：<https://github.com/kylinz10086/jianghun>
+- 在线原型：<https://kylinz10086.github.io/jianghun/>
 
 ## 许可
 
