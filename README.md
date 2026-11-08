@@ -43,19 +43,11 @@ python -m http.server 4173 --bind 127.0.0.1 --directory prototype
 
 然后打开：<http://127.0.0.1:4173/>
 
-### 方式三：GitHub Pages
+### 方式三：在线预览
 
-仓库里已经放了 `.github/workflows/pages.yml`。推送到 `main` 后：
+**https://kylinz10086.github.io/jianghun/**
 
-1. 打开仓库 **Settings → Pages**
-2. **Source** 选 **GitHub Actions**
-3. 等 Actions 跑完，地址形如：
-
-```text
-https://<your-username>.github.io/<repo-name>/
-```
-
-> 如果 Pages 没开，原型仍然可以本地双击打开；Actions 只是把它变成在线可访问的网址。
+`.github/workflows/pages.yml` 会在 `main` 更新后自动部署 `prototype/` 到 GitHub Pages。
 
 ---
 
